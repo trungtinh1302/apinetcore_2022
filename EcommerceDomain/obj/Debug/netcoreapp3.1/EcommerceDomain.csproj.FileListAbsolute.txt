@@ -1,0 +1,10 @@
+D:\.NetCore\Ecommerce_Backend\EcommerceDomain\bin\Debug\netcoreapp3.1\EcommerceDomain.deps.json
+D:\.NetCore\Ecommerce_Backend\EcommerceDomain\bin\Debug\netcoreapp3.1\EcommerceDomain.dll
+D:\.NetCore\Ecommerce_Backend\EcommerceDomain\bin\Debug\netcoreapp3.1\EcommerceDomain.pdb
+D:\.NetCore\Ecommerce_Backend\EcommerceDomain\obj\Debug\netcoreapp3.1\EcommerceDomain.csproj.AssemblyReference.cache
+D:\.NetCore\Ecommerce_Backend\EcommerceDomain\obj\Debug\netcoreapp3.1\EcommerceDomain.GeneratedMSBuildEditorConfig.editorconfig
+D:\.NetCore\Ecommerce_Backend\EcommerceDomain\obj\Debug\netcoreapp3.1\EcommerceDomain.AssemblyInfoInputs.cache
+D:\.NetCore\Ecommerce_Backend\EcommerceDomain\obj\Debug\netcoreapp3.1\EcommerceDomain.AssemblyInfo.cs
+D:\.NetCore\Ecommerce_Backend\EcommerceDomain\obj\Debug\netcoreapp3.1\EcommerceDomain.csproj.CoreCompileInputs.cache
+D:\.NetCore\Ecommerce_Backend\EcommerceDomain\obj\Debug\netcoreapp3.1\EcommerceDomain.dll
+D:\.NetCore\Ecommerce_Backend\EcommerceDomain\obj\Debug\netcoreapp3.1\EcommerceDomain.pdb

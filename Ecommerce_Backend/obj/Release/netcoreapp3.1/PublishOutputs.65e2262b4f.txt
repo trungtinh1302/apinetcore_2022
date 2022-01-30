@@ -1,0 +1,7 @@
+D:\.NetCore\Ecommerce_Backend\Ecommerce_Backend\obj\Release\netcoreapp3.1\PubTmp\Out\Ecommerce_Backend.exe
+D:\.NetCore\Ecommerce_Backend\Ecommerce_Backend\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.Development.json
+D:\.NetCore\Ecommerce_Backend\Ecommerce_Backend\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.json
+D:\.NetCore\Ecommerce_Backend\Ecommerce_Backend\obj\Release\netcoreapp3.1\PubTmp\Out\Ecommerce_Backend.dll
+D:\.NetCore\Ecommerce_Backend\Ecommerce_Backend\obj\Release\netcoreapp3.1\PubTmp\Out\Ecommerce_Backend.deps.json
+D:\.NetCore\Ecommerce_Backend\Ecommerce_Backend\obj\Release\netcoreapp3.1\PubTmp\Out\Ecommerce_Backend.runtimeconfig.json
+D:\.NetCore\Ecommerce_Backend\Ecommerce_Backend\obj\Release\netcoreapp3.1\PubTmp\Out\Ecommerce_Backend.pdb
