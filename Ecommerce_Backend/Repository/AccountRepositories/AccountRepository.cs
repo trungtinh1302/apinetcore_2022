@@ -28,29 +28,42 @@ namespace Ecommerce_Backend.Repository.AccountRepositories
             }
         }
 
-        public override async Task<bool> Update(Account entity)
+        public override bool Update(Account entity)
         {
-            try
+            using (var transaction = _context.Database.BeginTransaction())
             {
-                using (var transaction = await _context.Database.BeginTransactionAsync())
+                try
                 {
-                    var existingAccount = await _dbSet.Where(x => x.ID == entity.ID)
-                                                    .FirstOrDefaultAsync();
+                    var existingAccount = _dbSet.Where(x => x.ID == entity.ID)
+                                               .FirstOrDefault();
 
                     if (existingAccount != null)
                     {
-                        return await Update(entity);
+                        var updateAccount = Update(entity);
+                        //return await Update(entity);
+                        if (updateAccount)
+                        {
+                            transaction.Commit();
+                            return updateAccount;
+                        }
+                        else
+                        {
+                            transaction.Commit();
+                            return updateAccount;
+                        }
                     }
                     else
                     {
+                        transaction.Rollback();
                         return false;
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "{Repo} Account error error");
-                return false;
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "{Repo} Account error error");
+                    transaction.Rollback();
+                    return false;
+                }
             }
         }
 
@@ -91,14 +104,45 @@ namespace Ecommerce_Backend.Repository.AccountRepositories
                     }
                     catch (Exception ex)
                     {
-                        throw ex;
                         transaction.Rollback();
+                        throw ex;
                     }
                 }
             }
             else
             {
                 return 1;
+            }
+        }
+
+        public async Task<int> UpdateAccount(int ID, Account entity)
+        {
+            using (var transaction = await _context.Database.BeginTransactionAsync())
+            {
+                try
+                {
+                    if (!(ID == entity.ID))
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        if (!await _dbSet.AnyAsync(x => x.ID == ID))
+                        {
+                            return 2;
+                        }
+
+                        _dbSet.Update(entity);
+                        await transaction.CommitAsync();
+                        return 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    return 3;
+                    throw ex;
+                }
             }
         }
     }

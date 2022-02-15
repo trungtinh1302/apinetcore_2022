@@ -47,9 +47,18 @@ namespace Ecommerce_Backend.Repository
             return await _dbSet.FindAsync(ID);
         }
 
-        public virtual Task<bool> Update(T entity)
+        public virtual bool Update(T entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbSet.Update(entity);
+                return true;
+            }
+            catch (Exception)
+            {
+                return true;
+                throw;
+            }
         }
     }
 }

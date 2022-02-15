@@ -43,15 +43,32 @@ namespace Ecommerce_Backend.Controllers
                 return Ok("Success");
             }
 
-            return new JsonResult("Something Went wrong") { StatusCode = 500 };
+            return new JsonResult("Something Went Wrong") { StatusCode = 500 };
         }
 
-        [HttpPut]
+        [HttpPost]
         [Route("api/update")]
-        public async Task<IActionResult> Update(Account entity)
+        public async Task<IActionResult> Update(int accountID, Account entity)
         {
+            var accountUpdUOW = await _unitOfWork.Account.UpdateAccount(accountID, entity);
 
-            return Ok();
+            if (accountUpdUOW == 0)
+            {
+                await _unitOfWork.CompleteAsync();
+                return new JsonResult("Update Account Success") { StatusCode = 200 };
+            }
+            else if (accountUpdUOW == 1)
+            {
+                return new JsonResult("Account ID is not map") { StatusCode = 500 };
+            }
+            else if (accountUpdUOW == 2)
+            {
+                return new JsonResult("Account is not exist") { StatusCode = 500 };
+            }
+            else
+            {
+                return new JsonResult("Account Update Error") { StatusCode = 500 };
+            }
         }
     }
 }

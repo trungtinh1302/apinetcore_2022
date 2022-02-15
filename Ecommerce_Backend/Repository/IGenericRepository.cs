@@ -12,7 +12,7 @@ namespace Ecommerce_Backend.Repository
         Task<T> GetByID(int ID);
         Task<bool> Create(T entity);
         Task<bool> Delete(int ID);
-        Task<bool> Update(T entity);
+        bool Update(T entity);
         Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate);
     }
 }
